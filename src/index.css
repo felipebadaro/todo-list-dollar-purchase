@@ -11,6 +11,19 @@
 }
 
 :root {
+  --black: #1f2421;
   --blue: #1e90ff;
+  --green: #49a078;
+  --dark-green: #216869;
+  --dark-grey: #223843;
+  --light-grey: #dce1de;
+  --orange: #d77a61;
   --white: #ffffff;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--light-grey);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

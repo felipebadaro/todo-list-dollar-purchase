@@ -3,6 +3,7 @@ import "./Form.css";
 
 function Form() {
   const [purchase, setPurchase] = useState({
+    status: "pendente",
     description: "",
     value: "",
     tax: "",
@@ -20,12 +21,10 @@ function Form() {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name);
-    console.log(value);
     setPurchase({ ...purchase, [name]: value });
   };
 
-  const validateNumber = (number) => !isNaN(number) && number > 0;
+  const validateNumber = (number) => !isNaN(number) && number >= 0;
   const validateText = (text) => text.length > 2;
 
   const validatePurchase = (purchase) => {
@@ -39,7 +38,7 @@ function Form() {
   return (
     <div className="FormWrapper">
       <h3 className="formTitle">Informe sua próxima compra em dólar</h3>
-      <form id="todoListForm">
+      <form id="purchaseForm">
         <div className="formRow">
           <label htmlFor="description">Descrição:</label>
           <input type="text" name="description" onChange={handleChange} />
