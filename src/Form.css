@@ -1,0 +1,32 @@
+.FormWrapper {
+  border: 1px solid var(--blue);
+  padding: 14px;
+  max-width: 460px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.formTitle {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 14px 0;
+}
+
+.formRow input[type="text"] {
+  border: 1px solid var(--blue);
+}
+
+.btnSubmit {
+  background-color: var(--blue);
+  border-radius: 14px;
+  color: var(--white);
+  font-size: 17px;
+  margin: 10px 0;
+  padding: 10px;
+}
