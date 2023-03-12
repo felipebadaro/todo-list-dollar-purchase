@@ -37,21 +37,21 @@ function Form() {
 
   return (
     <div className="FormWrapper">
-      <h3 className="formTitle">Informe sua próxima compra em dólar</h3>
+      <h3 className="formTitle">Informe sua próxima compra de dólar</h3>
       <form id="purchaseForm">
         <div className="formRow">
-          <label htmlFor="description">Descrição:</label>
+          <label htmlFor="description">Descrição</label>
           <input type="text" name="description" onChange={handleChange} />
         </div>
         <div className="formRow">
-          <label htmlFor="value">Valor (R$):</label>
+          <label htmlFor="value">Valor (R$)</label>
           <input type="text" name="value" onChange={handleChange} />
         </div>
         <div className="formRow">
-          <label htmlFor="value">Taxa (%):</label>
+          <label htmlFor="value">Taxa (%)</label>
           <input type="text" name="tax" onChange={handleChange} />
         </div>
-        <div className="formRow">
+        <div className="right">
           <input
             type="submit"
             name="submit"
