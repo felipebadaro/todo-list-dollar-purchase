@@ -1,17 +1,39 @@
+import { useState } from "react";
 import "./Form.css";
 
 function Form() {
+  const [purchase, setPurchase] = useState({
+    description: "",
+    value: "",
+    tax: "",
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Entrei no handleSubmit!");
+    if (validatePurchase(purchase)) {
+      alert("adiciona na lista global");
+    } else {
+      alert("purchase nao valido");
+    }
   };
 
-  const validateNumber = (number) => {
-    return !isNaN(number) && number > 0;
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(name);
+    console.log(value);
+    setPurchase({ ...purchase, [name]: value });
   };
 
-  const validateText = (text) => {
-    return text.length > 2;
+  const validateNumber = (number) => !isNaN(number) && number > 0;
+  const validateText = (text) => text.length > 2;
+
+  const validatePurchase = (purchase) => {
+    return (
+      validateText(purchase.description) &&
+      validateNumber(purchase.value) &&
+      validateNumber(purchase.tax)
+    );
   };
 
   return (
@@ -20,15 +42,15 @@ function Form() {
       <form id="todoListForm">
         <div className="formRow">
           <label htmlFor="description">Descrição:</label>
-          <input type="text" name="description" />
+          <input type="text" name="description" onChange={handleChange} />
         </div>
         <div className="formRow">
           <label htmlFor="value">Valor (R$):</label>
-          <input type="text" name="value" />
+          <input type="text" name="value" onChange={handleChange} />
         </div>
         <div className="formRow">
           <label htmlFor="value">Taxa (%):</label>
-          <input type="text" name="value" />
+          <input type="text" name="tax" onChange={handleChange} />
         </div>
         <div className="formRow">
           <input
