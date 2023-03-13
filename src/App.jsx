@@ -1,13 +1,15 @@
 import { useState } from "react";
-// import reactLogo from './assets/react.svg'
+import dolarImg from "./assets/dolar.webp";
 import "./App.css";
 import Form from "./Form";
 import Menu from "./Menu";
+import Logo from "./Logo";
 
 function App() {
   return (
     <div className="App">
       <Menu />
+      <Logo />
       <Form />
     </div>
   );

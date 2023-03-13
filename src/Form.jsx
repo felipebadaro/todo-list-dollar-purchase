@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Form.css";
 
 function Form() {
@@ -7,6 +7,13 @@ function Form() {
     description: "",
     value: "",
     tax: "",
+  });
+
+  const refFistInput = useRef(null);
+
+  useEffect(() => {
+    console.log("pega o primeiro input e faz o focus");
+    refFistInput.current.focus();
   });
 
   const handleSubmit = (e) => {
@@ -36,12 +43,17 @@ function Form() {
   };
 
   return (
-    <div className="FormWrapper">
-      <h3 className="formTitle">Informe sua próxima compra de dólar</h3>
-      <form id="purchaseForm">
+    <div className="formWrapper">
+      <form className="purchaseForm">
+        <h3 className="formTitle">Informe sua próxima compra de dólar</h3>
         <div className="formRow">
           <label htmlFor="description">Descrição</label>
-          <input type="text" name="description" onChange={handleChange} />
+          <input
+            type="text"
+            name="description"
+            onChange={handleChange}
+            ref={refFistInput}
+          />
         </div>
         <div className="formRow">
           <label htmlFor="value">Valor (R$)</label>

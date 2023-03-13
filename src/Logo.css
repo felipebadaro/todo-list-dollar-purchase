@@ -1,0 +1,8 @@
+.LogoWrapper {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.LogoWrapper img {
+  max-width: 100px;
+}
