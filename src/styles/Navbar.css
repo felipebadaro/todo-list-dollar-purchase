@@ -1,7 +1,15 @@
-.MenuWrapper {
+.navbarWrapper {
   background-color: var(--green);
   border: 1px solid var(--white);
   margin-bottom: 20px;
   padding: 10px;
   text-align: center;
+}
+
+.navbarWrapper a {
+  color: var(--light-grey);
+}
+
+.navbarWrapper a:hover {
+  color: var(--dark-green);
 }

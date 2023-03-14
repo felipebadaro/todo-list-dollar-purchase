@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="MenuWrapper">
+    <nav className="navbarWrapper">
       <ul>
         <li>
           <Link to="/">Cadastro</Link>
