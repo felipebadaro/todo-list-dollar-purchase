@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./Form.css";
+import "../styles/Form.css";
 
 function Form() {
   const [purchase, setPurchase] = useState({
