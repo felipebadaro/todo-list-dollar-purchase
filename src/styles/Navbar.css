@@ -13,3 +13,10 @@
 .navbarWrapper a:hover {
   color: var(--dark-green);
 }
+
+.navbarWrapper ul {
+  align-content: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
