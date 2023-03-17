@@ -1,0 +1,20 @@
+.purchaseWrapper {
+  border: 1px solid var(--light-grey);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  width: 140px;
+}
+
+.pendent {
+  background-color: var(--yellow);
+}
+
+.purchased {
+  background-color: var(--dark-green);
+}
+
+.purchaseWrapper ul li {
+  font-size: 14px;
+  margin: 5px 0;
+}
