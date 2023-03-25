@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "../styles/Form.css";
+import { PurchasesContext } from "../contexts/PurchasesContext";
 
 function Form() {
   const [purchase, setPurchase] = useState({
@@ -8,18 +9,20 @@ function Form() {
     value: "",
     tax: "",
   });
+  const { purchases, addPurchase } = useContext(PurchasesContext);
 
   const refFistInput = useRef(null);
 
-  useEffect(() => {
-    console.log("pega o primeiro input e faz o focus");
-    refFistInput.current.focus();
-  });
+  // useEffect(() => {
+  //   console.log("pega o primeiro input e faz o focus");
+  //   refFistInput.current.focus();
+  // });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validatePurchase(purchase)) {
-      alert("adiciona na lista global");
+      addPurchase(purchase);
+      console.log("compra adicionada:", purchase);
     } else {
       alert("purchase nao valido");
     }
