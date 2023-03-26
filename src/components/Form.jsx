@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/Form.css";
 import { PurchasesContext } from "../contexts/PurchasesContext";
 import Message from "./Message";
@@ -21,8 +21,6 @@ function Form() {
   const [message, setMessage] = useState("");
   const [messageStatus, setMessageStatus] = useState("");
   const { purchases, addPurchase } = useContext(PurchasesContext);
-
-  // const refFistInput = useRef(null);
 
   useEffect(() => {
     setMessage("");
