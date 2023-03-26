@@ -3,15 +3,16 @@ import "../styles/Form.css";
 import { PurchasesContext } from "../contexts/PurchasesContext";
 
 function Form() {
-  const [purchase, setPurchase] = useState({
+  const purchaseBluePrint = {
     status: "pendente",
     description: "",
     value: "",
     tax: "",
-  });
+  };
+  const [purchase, setPurchase] = useState(purchaseBluePrint);
   const { purchases, addPurchase } = useContext(PurchasesContext);
 
-  const refFistInput = useRef(null);
+  // const refFistInput = useRef(null);
 
   // useEffect(() => {
   //   console.log("pega o primeiro input e faz o focus");
@@ -22,10 +23,15 @@ function Form() {
     e.preventDefault();
     if (validatePurchase(purchase)) {
       addPurchase(purchase);
+      clearForm();
       console.log("compra adicionada:", purchase);
     } else {
       alert("purchase nao valido");
     }
+  };
+
+  const clearForm = () => {
+    setPurchase(purchaseBluePrint);
   };
 
   const handleChange = (e) => {
@@ -55,16 +61,26 @@ function Form() {
             type="text"
             name="description"
             onChange={handleChange}
-            ref={refFistInput}
+            value={purchase.description}
           />
         </div>
         <div className="formRow">
           <label htmlFor="value">Valor (R$)</label>
-          <input type="text" name="value" onChange={handleChange} />
+          <input
+            type="text"
+            name="value"
+            onChange={handleChange}
+            value={purchase.value}
+          />
         </div>
         <div className="formRow">
           <label htmlFor="value">Taxa (%)</label>
-          <input type="text" name="tax" onChange={handleChange} />
+          <input
+            type="text"
+            name="tax"
+            onChange={handleChange}
+            value={purchase.tax}
+          />
         </div>
         <div className="right">
           <input
