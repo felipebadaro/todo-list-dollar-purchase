@@ -8,9 +8,13 @@ function PurchaseList() {
 
   return (
     <div className="purchaseListWrapper">
-      {purchases.map((purchase) => (
-        <Purchase key={purchase.key} {...purchase} />
-      ))}
+      {purchases.length > 0 ? (
+        purchases.map((purchase) => (
+          <Purchase key={purchase.key} {...purchase} />
+        ))
+      ) : (
+        <p>Nenhum compra cadastrada.</p>
+      )}
     </div>
   );
 }

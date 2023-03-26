@@ -8,7 +8,6 @@ export const PurchasesProvider = ({ children }) => {
   const addPurchase = (purchase) => {
     const newPurchases = purchases;
     newPurchases.push(purchase);
-    console.log("conteúdo atual do purchases", purchases);
     setPurchases(newPurchases);
   };
 
