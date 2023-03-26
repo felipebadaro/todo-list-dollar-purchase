@@ -1,19 +1,17 @@
 import "../styles/PurchaseList.css";
 import Purchase from "../components/Purchase";
+import { useContext, useEffect, useRef, useState } from "react";
+import { PurchasesContext } from "../contexts/PurchasesContext";
+
 function PurchaseList() {
+  const { purchases, addPurchase } = useContext(PurchasesContext);
   const pendent = "pendent";
   const purchased = "purchased";
   return (
     <div className="purchaseListWrapper">
-      <Purchase status={pendent} description={`Renda variável`} />
-      <Purchase status={pendent} description={`Renda fixa`} />
-      <Purchase status={pendent} description={`Ações`} />
-      <Purchase status={purchased} description={`Ações`} />
-      <Purchase status={pendent} description={`Fundo`} />
-      <Purchase status={pendent} description={`Renda variável`} />
-      <Purchase status={pendent} description={`Renda fixa`} />
-      <Purchase status={purchased} description={`Fundo`} />
-      <Purchase status={purchased} description={`Renda variável`} />
+      {purchases.map((purchase) => (
+        <Purchase key={purchase.key} {...purchase} />
+      ))}
     </div>
   );
 }

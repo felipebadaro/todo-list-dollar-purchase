@@ -5,7 +5,8 @@ import Message from "./Message";
 
 function Form() {
   const purchaseBluePrint = {
-    status: "pendente",
+    key: "",
+    status: "pendent",
     description: "",
     value: "",
     tax: "",
@@ -36,7 +37,8 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validatePurchase(purchase)) {
-      addPurchase(purchase);
+      const newPurchase = { ...purchase, key: new Date().getTime().toString() };
+      addPurchase(newPurchase);
       clearForm();
       showMessage(messages.success, "success");
     } else {
