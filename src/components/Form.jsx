@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "../styles/Form.css";
 import { PurchasesContext } from "../contexts/PurchasesContext";
+import Message from "./Message";
 
 function Form() {
   const purchaseBluePrint = {
@@ -9,24 +10,37 @@ function Form() {
     value: "",
     tax: "",
   };
+  const messages = {
+    success: "Compra cadastrada com sucesso.",
+    error:
+      "Ocorreu um erro ao cadastrar sua compra, tente novamente por favor.",
+  };
+
   const [purchase, setPurchase] = useState(purchaseBluePrint);
+  const [message, setMessage] = useState("");
+  const [messageStatus, setMessageStatus] = useState("");
   const { purchases, addPurchase } = useContext(PurchasesContext);
 
   // const refFistInput = useRef(null);
 
-  // useEffect(() => {
-  //   console.log("pega o primeiro input e faz o focus");
-  //   refFistInput.current.focus();
-  // });
+  useEffect(() => {
+    setMessage("");
+    setMessageStatus("");
+  }, []);
+
+  const showMessage = (message, messageStatus) => {
+    setMessage(message);
+    setMessageStatus(messageStatus);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validatePurchase(purchase)) {
       addPurchase(purchase);
       clearForm();
-      console.log("compra adicionada:", purchase);
+      showMessage(messages.success, "success");
     } else {
-      alert("purchase nao valido");
+      showMessage(messages.error, "error");
     }
   };
 
@@ -52,47 +66,50 @@ function Form() {
   };
 
   return (
-    <div className="formWrapper">
-      <form className="purchaseForm">
-        <h3 className="formTitle">Informe sua próxima compra de dólar</h3>
-        <div className="formRow">
-          <label htmlFor="description">Descrição</label>
-          <input
-            type="text"
-            name="description"
-            onChange={handleChange}
-            value={purchase.description}
-          />
-        </div>
-        <div className="formRow">
-          <label htmlFor="value">Valor (R$)</label>
-          <input
-            type="text"
-            name="value"
-            onChange={handleChange}
-            value={purchase.value}
-          />
-        </div>
-        <div className="formRow">
-          <label htmlFor="value">Taxa (%)</label>
-          <input
-            type="text"
-            name="tax"
-            onChange={handleChange}
-            value={purchase.tax}
-          />
-        </div>
-        <div className="right">
-          <input
-            type="submit"
-            name="submit"
-            value="Enviar"
-            className="btnSubmit"
-            onClick={handleSubmit}
-          />
-        </div>
-      </form>
-    </div>
+    <>
+      <Message message={message} status={messageStatus} />
+      <div className="formWrapper">
+        <form className="purchaseForm">
+          <h3 className="formTitle">Informe sua próxima compra de dólar</h3>
+          <div className="formRow">
+            <label htmlFor="description">Descrição</label>
+            <input
+              type="text"
+              name="description"
+              onChange={handleChange}
+              value={purchase.description}
+            />
+          </div>
+          <div className="formRow">
+            <label htmlFor="value">Valor (R$)</label>
+            <input
+              type="text"
+              name="value"
+              onChange={handleChange}
+              value={purchase.value}
+            />
+          </div>
+          <div className="formRow">
+            <label htmlFor="value">Taxa (%)</label>
+            <input
+              type="text"
+              name="tax"
+              onChange={handleChange}
+              value={purchase.tax}
+            />
+          </div>
+          <div className="right">
+            <input
+              type="submit"
+              name="submit"
+              value="Enviar"
+              className="btnSubmit"
+              onClick={handleSubmit}
+            />
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 
