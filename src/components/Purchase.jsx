@@ -1,6 +1,6 @@
 import "../styles/Purchase.css";
 
-function Purchase({ status, description, value, tax }) {
+function Purchase({ total, status, description, value, tax }) {
   return (
     <div className={`purchaseWrapper ${status}`}>
       <ul>
@@ -8,7 +8,7 @@ function Purchase({ status, description, value, tax }) {
         <li>R$ {value}</li>
         <li>{tax}%</li>
       </ul>
-      <h3>$ 40</h3>
+      <h3>{total ? `$${total}` : `não foi possível calcular o valor`}</h3>
     </div>
   );
 }
