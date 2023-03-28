@@ -2,7 +2,7 @@ import "../styles/PurchaseList.css";
 import Purchase from "../components/Purchase";
 import { useContext, useEffect } from "react";
 import { PurchasesContext } from "../contexts/PurchasesContext";
-import { cotationAPIURL } from "../utils/config";
+import { cotationAPIURL, IOF } from "../utils/config";
 import useFetch from "../hooks/useFetch.jsx";
 
 function PurchaseList() {
@@ -15,10 +15,9 @@ function PurchaseList() {
   }
 
   const calculateValueInDollar = (cotationData, purchase) => {
+    const allTaxes = parseFloat(purchase.tax) + parseFloat(IOF);
     if (cotationData) {
-      return (purchase.value * cotationData.USDBRL.bid - purchase.tax).toFixed(
-        2
-      );
+      return (purchase.value / cotationData.USDBRL.bid - allTaxes).toFixed(2);
     } else {
       return null;
     }
