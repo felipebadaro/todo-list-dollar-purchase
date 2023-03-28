@@ -1,9 +1,23 @@
 .purchaseWrapper {
-  border: 1px solid var(--light-grey);
+  border: 2px solid var(--light-grey);
   border-radius: 10px;
   padding: 20px;
   text-align: left;
   width: 140px;
+}
+
+.purchaseWrapper .total {
+  border-bottom: 1px solid var(--white);
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.purchaseWrapper .description {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  padding: 10px 0;
 }
 
 .pendent {

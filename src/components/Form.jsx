@@ -54,13 +54,14 @@ function Form() {
     setPurchase({ ...purchase, [name]: value });
   };
 
-  const validateNumber = (number) => !isNaN(number) && number >= 0;
+  const validateNumber = (number) => !isNaN(number);
+  const validateValue = (number) => validateNumber(number) && number > 0;
   const validateText = (text) => text.length > 2;
 
   const validatePurchase = (purchase) => {
     return (
       validateText(purchase.description) &&
-      validateNumber(purchase.value) &&
+      validateValue(purchase.value) &&
       validateNumber(purchase.tax)
     );
   };
