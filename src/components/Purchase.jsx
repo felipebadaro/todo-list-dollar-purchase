@@ -1,6 +1,17 @@
+import { useContext } from "react";
 import "../styles/Purchase.css";
+import { PurchasesContext } from "../contexts/PurchasesContext";
 
-function Purchase({ total, status, description, value, tax }) {
+function Purchase({ id, status, description, value, tax, total }) {
+  const { purchases, setPurchases } = useContext(PurchasesContext);
+  const handleBuy = (e, id) => {
+    // hideBtnBuy(e.target);
+    //findTheObjectByIdAndReplaceTheStatus
+  };
+
+  const hideBtnBuy = (btn) => {
+    btn.style.display = "none";
+  };
   return (
     <div className={`purchaseWrapper ${status}`}>
       <h2 className="total">
@@ -12,6 +23,9 @@ function Purchase({ total, status, description, value, tax }) {
         <li>Valor: R$ {value}</li>
         <li>Taxa: {tax}%</li>
       </ul>
+      <button className="btnBuy" onClick={(e) => handleBuy(e, id)}>
+        Comprou?
+      </button>
     </div>
   );
 }

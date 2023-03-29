@@ -26,13 +26,15 @@ function PurchaseList() {
   return (
     <div className="purchaseListWrapper">
       {purchases.length > 0 ? (
-        purchases.map((purchase) => (
-          <Purchase
-            key={purchase.key}
-            total={calculateValueInDollar(data, purchase)}
-            {...purchase}
-          />
-        ))
+        purchases.map((purchase) => {
+          return (
+            <Purchase
+              key={purchase.id}
+              {...purchase}
+              total={calculateValueInDollar(data, purchase)}
+            />
+          );
+        })
       ) : (
         <p>Nenhum compra cadastrada.</p>
       )}

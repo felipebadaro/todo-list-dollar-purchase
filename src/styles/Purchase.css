@@ -32,3 +32,11 @@
   font-size: 14px;
   margin: 5px 0;
 }
+
+.btnBuy {
+  background-color: var(--dark-green);
+  border-radius: 25px;
+  color: var(--white);
+  margin: 10px 0;
+  padding: 10px;
+}
