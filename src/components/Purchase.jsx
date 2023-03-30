@@ -3,10 +3,27 @@ import "../styles/Purchase.css";
 import { PurchasesContext } from "../contexts/PurchasesContext";
 
 function Purchase({ id, status, description, value, tax, total }) {
-  const { purchases, setPurchases } = useContext(PurchasesContext);
+  const { purchases, addPurchase } = useContext(PurchasesContext);
+
   const handleBuy = (e, id) => {
+    console.log("Cliquei no handleBuy");
+    const newPurchases = changePurchaseStatus(id);
+    addPurchase(newPurchases);
     // hideBtnBuy(e.target);
-    //findTheObjectByIdAndReplaceTheStatus
+  };
+
+  const changePurchaseStatus = (id) => {
+    const newPurchases = purchases;
+    console.log("newPurchases", newPurchases);
+    newPurchases.forEach((purchase, index) => {
+      console.log("purchase.id", purchase.id);
+      console.log("id", id);
+      if (purchase.id === id) {
+        purchase.status = "purchased";
+      }
+    });
+
+    return newPurchases;
   };
 
   const hideBtnBuy = (btn) => {

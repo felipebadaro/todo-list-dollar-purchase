@@ -5,9 +5,7 @@ export const PurchasesContext = createContext();
 export const PurchasesProvider = ({ children }) => {
   const [purchases, setPurchases] = useState([]);
 
-  const addPurchase = (purchase) => {
-    const newPurchases = purchases;
-    newPurchases.push(purchase);
+  const addPurchase = (newPurchases) => {
     setPurchases(newPurchases);
   };
 

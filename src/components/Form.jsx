@@ -36,8 +36,9 @@ function Form() {
     e.preventDefault();
     if (validatePurchase(purchase)) {
       const newPurchase = { ...purchase, id: new Date().getTime().toString() };
-      console.log(newPurchase);
-      addPurchase(newPurchase);
+      const newPurchases = purchases;
+      newPurchases.push(newPurchase);
+      addPurchase(newPurchases);
       clearForm();
       showMessage(messages.success, "success");
     } else {
