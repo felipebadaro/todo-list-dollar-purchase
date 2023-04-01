@@ -36,7 +36,7 @@ function PurchaseList() {
           );
         })
       ) : (
-        <p>Nenhum compra cadastrada.</p>
+        <p>Nenhuma compra cadastrada.</p>
       )}
     </div>
   );

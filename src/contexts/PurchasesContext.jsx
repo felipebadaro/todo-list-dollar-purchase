@@ -6,7 +6,7 @@ export const PurchasesProvider = ({ children }) => {
   const [purchases, setPurchases] = useState([]);
 
   const addPurchase = (newPurchases) => {
-    setPurchases(newPurchases);
+    setPurchases([...newPurchases]);
   };
 
   return (

@@ -6,7 +6,7 @@ import Message from "./Message";
 function Form() {
   const purchaseBluePrint = {
     id: "",
-    status: "pendent",
+    status: "pending",
     description: "",
     value: "",
     tax: "",
@@ -93,7 +93,7 @@ function Form() {
             />
           </div>
           <div className="formRow">
-            <label htmlFor="value">Taxa (%)</label>
+            <label htmlFor="value">Taxa sem IOF (%)</label>
             <input
               type="text"
               name="tax"

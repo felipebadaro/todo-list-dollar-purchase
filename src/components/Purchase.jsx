@@ -6,18 +6,14 @@ function Purchase({ id, status, description, value, tax, total }) {
   const { purchases, addPurchase } = useContext(PurchasesContext);
 
   const handleBuy = (e, id) => {
-    console.log("Cliquei no handleBuy");
     const newPurchases = changePurchaseStatus(id);
     addPurchase(newPurchases);
-    // hideBtnBuy(e.target);
+    hideBtnBuy(e.target);
   };
 
   const changePurchaseStatus = (id) => {
     const newPurchases = purchases;
-    console.log("newPurchases", newPurchases);
     newPurchases.forEach((purchase, index) => {
-      console.log("purchase.id", purchase.id);
-      console.log("id", id);
       if (purchase.id === id) {
         purchase.status = "purchased";
       }
@@ -40,9 +36,13 @@ function Purchase({ id, status, description, value, tax, total }) {
         <li>Valor: R$ {value}</li>
         <li>Taxa: {tax}%</li>
       </ul>
-      <button className="btnBuy" onClick={(e) => handleBuy(e, id)}>
-        Comprou?
-      </button>
+      {status == "pending" ? (
+        <button className="btnBuy" onClick={(e) => handleBuy(e, id)}>
+          Comprou?
+        </button>
+      ) : (
+        <p className="statusTextPending">Comprado</p>
+      )}
     </div>
   );
 }
