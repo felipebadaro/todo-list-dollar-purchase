@@ -1,11 +1,11 @@
 import dolarImg from "../assets/dolar.webp";
-import "../styles/Logo.css";
+import { StyledLogo } from "./styles/StyledLogo.styled";
 
 function Logo() {
   return (
-    <div className="logoWrapper">
+    <StyledLogo>
       <img src={dolarImg} alt="Dolar Logo" />
-    </div>
+    </StyledLogo>
   );
 }
 
