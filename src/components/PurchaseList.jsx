@@ -1,9 +1,9 @@
-import "../styles/PurchaseList.css";
 import Purchase from "../components/Purchase";
 import { useContext, useEffect } from "react";
 import { PurchasesContext } from "../contexts/PurchasesContext";
 import { cotationAPIURL, IOF } from "../utils/config";
 import useFetch from "../hooks/useFetch.jsx";
+import { StyledPurchaseList } from "./styles/StyledPurchaseList.styled";
 
 function PurchaseList() {
   const { purchases } = useContext(PurchasesContext);
@@ -24,7 +24,7 @@ function PurchaseList() {
   };
 
   return (
-    <div className="purchaseListWrapper">
+    <StyledPurchaseList>
       {purchases.length > 0 ? (
         purchases.map((purchase) => {
           return (
@@ -38,7 +38,7 @@ function PurchaseList() {
       ) : (
         <p>Nenhuma compra cadastrada.</p>
       )}
-    </div>
+    </StyledPurchaseList>
   );
 }
 
