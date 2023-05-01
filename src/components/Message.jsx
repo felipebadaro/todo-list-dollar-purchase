@@ -1,10 +1,10 @@
-import "../styles/Message.css";
+import { StyledMessage } from "./styles/StyledMessage.styled";
 
 function Message({ message, status }) {
   return (
-    <div className="messageWrapper">
+    <StyledMessage>
       <p className={status}>{message}</p>
-    </div>
+    </StyledMessage>
   );
 }
 
