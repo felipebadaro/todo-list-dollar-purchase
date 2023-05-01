@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../styles/Purchase.css";
+import { StyledPurchase } from "./styles/StyledPurchase.styled";
 import { PurchasesContext } from "../contexts/PurchasesContext";
 
 function Purchase({ id, status, description, value, tax, total }) {
@@ -26,7 +26,7 @@ function Purchase({ id, status, description, value, tax, total }) {
     btn.style.display = "none";
   };
   return (
-    <div className={`purchaseWrapper ${status}`}>
+    <StyledPurchase status={status}>
       <h2 className="total">
         {total ? `$${total}` : `não foi possível calcular o valor`}
       </h2>
@@ -43,7 +43,7 @@ function Purchase({ id, status, description, value, tax, total }) {
       ) : (
         <p className="statusTextPending">Comprado</p>
       )}
-    </div>
+    </StyledPurchase>
   );
 }
 
