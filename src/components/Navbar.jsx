@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/Navbar.css";
+import { StyledNavbar } from "./styles/StyledNavbar.styled";
 
 const Navbar = () => {
   return (
-    <nav className="navbarWrapper">
+    <StyledNavbar>
       <ul>
         <li>
           <Link to="/">Cadastro</Link>
@@ -13,7 +13,7 @@ const Navbar = () => {
           <Link to="/purchases">Compras</Link>
         </li>
       </ul>
-    </nav>
+    </StyledNavbar>
   );
 };
 
