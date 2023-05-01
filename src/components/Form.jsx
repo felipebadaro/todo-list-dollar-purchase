@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import "../styles/Form.css";
 import { PurchasesContext } from "../contexts/PurchasesContext";
 import Message from "./Message";
+import { StyledFormRow } from "./styles/StyledFormRow.styled";
+import { StyledForm } from "./styles/StyledForm.styled";
 
 function Form() {
   const purchaseBluePrint = {
@@ -71,47 +72,44 @@ function Form() {
   return (
     <>
       <Message message={message} status={messageStatus} />
-      <div className="formWrapper">
-        <form className="purchaseForm">
-          <h3 className="formTitle">Informe sua próxima compra de dólar</h3>
-          <div className="formRow">
-            <label htmlFor="description">Descrição</label>
-            <input
-              type="text"
-              name="description"
-              onChange={handleChange}
-              value={purchase.description}
-            />
-          </div>
-          <div className="formRow">
-            <label htmlFor="value">Valor (R$)</label>
-            <input
-              type="text"
-              name="value"
-              onChange={handleChange}
-              value={purchase.value}
-            />
-          </div>
-          <div className="formRow">
-            <label htmlFor="value">Taxa sem IOF (%)</label>
-            <input
-              type="text"
-              name="tax"
-              onChange={handleChange}
-              value={purchase.tax}
-            />
-          </div>
-          <div className="right">
-            <input
-              type="submit"
-              name="submit"
-              value="Enviar"
-              className="btnSubmit"
-              onClick={handleSubmit}
-            />
-          </div>
-        </form>
-      </div>
+      <StyledForm>
+        <h3>Informe sua próxima compra de dólar</h3>
+        <StyledFormRow>
+          <label htmlFor="description">Descrição</label>
+          <input
+            type="text"
+            name="description"
+            onChange={handleChange}
+            value={purchase.description}
+          />
+        </StyledFormRow>
+        <StyledFormRow>
+          <label htmlFor="value">Valor (R$)</label>
+          <input
+            type="text"
+            name="value"
+            onChange={handleChange}
+            value={purchase.value}
+          />
+        </StyledFormRow>
+        <StyledFormRow>
+          <label htmlFor="value">Taxa sem IOF (%)</label>
+          <input
+            type="text"
+            name="tax"
+            onChange={handleChange}
+            value={purchase.tax}
+          />
+        </StyledFormRow>
+        <div className="right">
+          <input
+            type="submit"
+            name="submit"
+            value="Enviar"
+            onClick={handleSubmit}
+          />
+        </div>
+      </StyledForm>
     </>
   );
 }
